@@ -9,7 +9,6 @@ import 'package:chat/shared/app_validator.dart';
 import 'package:chat/shared/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 
 class RegisterScreen extends StatefulWidget {
@@ -31,13 +30,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title:Text(
-            'Create Account',style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            fontSize: 20
-        )
+        title:const Text(
+            'Create Account'
         ),
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
       ),
       body: Container(
         width: double.infinity,
@@ -166,7 +161,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (formKey.currentState?.validate() == true) {
       BlocProvider.of<AuthViewModel>(context).register(
           name: nameController.text,
-          email: emailController.text,
+          email: emailController.text.trim(),
           password: passwordController.text);
     }
   }

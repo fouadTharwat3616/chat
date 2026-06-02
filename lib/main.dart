@@ -1,3 +1,4 @@
+import 'package:chat/rooms/view/screens/create_room_screen.dart';
 import 'package:chat/shared/app_theme.dart';
 import 'package:chat/auth/view/screens/login_screen.dart';
 import 'package:chat/auth/view/screens/register_screen.dart';
@@ -7,7 +8,6 @@ import 'package:chat/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,12 +17,14 @@ Future<void> main() async{
   runApp(
       BlocProvider(
           create:(context) => AuthViewModel() ,
-          child: MyApp()
+          child: const MyApp()
       )
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,8 +33,9 @@ class MyApp extends StatelessWidget {
        HomeScreen.routeName:(context) => HomeScreen(),
         LoginScreen.routeName:(context) => LoginScreen(),
         RegisterScreen.routeName:(context) => RegisterScreen(),
+        CreateRoomScreen.routeName:(context) => const CreateRoomScreen()
       },
-      initialRoute: LoginScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
     );

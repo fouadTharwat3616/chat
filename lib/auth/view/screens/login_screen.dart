@@ -9,7 +9,6 @@ import 'package:chat/shared/app_validator.dart';
 import 'package:chat/shared/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -30,13 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title:Text(
-          'Login',style: Theme.of(context).textTheme.titleMedium?.copyWith(
-          fontSize: 20
-        )
+        title:const Text(
+          'Login',
         ),
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
+
       ),
       body: Container(
         width: double.infinity,

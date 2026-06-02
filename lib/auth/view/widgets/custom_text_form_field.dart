@@ -33,7 +33,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        hintStyle: const TextStyle(color: Colors.white,fontSize: 18),
         label:widget.labelText != null ?Text( widget.labelText!,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
           fontSize: 20,

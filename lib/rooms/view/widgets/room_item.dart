@@ -1,12 +1,19 @@
+import 'package:chat/rooms/data/models/room_model.dart';
+import 'package:chat/rooms/view_model/room_view_model.dart';
 import 'package:chat/shared/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RoomItem extends StatelessWidget {
-  const RoomItem({super.key});
+  const RoomItem(this.roomModel, {super.key});
+  final RoomModel roomModel;
+
+
 
   @override
   Widget build(BuildContext context) {
     final displayTheme= Theme.of(context).textTheme.displaySmall;
+    String categoryImageName = BlocProvider.of<RoomViewModel>(context).getCategoryImageName(roomModel.categoryId);
     return
       //Material(
      // elevation: 20,
@@ -30,16 +37,20 @@ class RoomItem extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              'assets/images/movies.png',
+              'assets/images/$categoryImageName.png',
               height: 85
             ),
             const SizedBox(height: 12,),
-            Text('The Movies Zone',style: displayTheme,),
+            Text(roomModel.name,style: displayTheme,),
             const SizedBox(height: 12,),
-            Text('13 Members',style: displayTheme?.copyWith(
+            Text(roomModel.description,style: displayTheme?.copyWith(
               fontSize: 12,
-              color: AppTheme.greycolor
-            ),),
+              color: AppTheme.greycolor,
+              overflow: TextOverflow.ellipsis,
+            ),
+            textAlign: TextAlign.center,
+              maxLines: 2,
+            ),
           ],
         ),
      // ),

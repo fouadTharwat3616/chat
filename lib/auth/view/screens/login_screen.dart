@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     else if(state is LoginError)
                       {
                         UiUtils.hideLoading(context);
-                        UiUtils.showError(state.message);
+                        UiUtils.showMessage(state.message);
                       }
                     else if(state is LoginSuccess)
                       {

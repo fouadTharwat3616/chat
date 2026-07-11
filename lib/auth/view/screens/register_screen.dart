@@ -110,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     else if(state is RegisterError)
                       {
                         UiUtils.hideLoading(context);
-                        UiUtils.showError(state.message);
+                        UiUtils.showMessage(state.message);
                       }
                     else  if(state is RegisterSuccess)
                       {

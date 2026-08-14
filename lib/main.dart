@@ -1,3 +1,4 @@
+import 'package:chat/chat/view/screens/chat_screen.dart';
 import 'package:chat/rooms/view/screens/create_room_screen.dart';
 import 'package:chat/shared/app_bloc_observer.dart';
 import 'package:chat/shared/app_theme.dart';
@@ -35,9 +36,10 @@ class MyApp extends StatelessWidget {
        HomeScreen.routeName:(context) => HomeScreen(),
         LoginScreen.routeName:(context) => LoginScreen(),
         RegisterScreen.routeName:(context) => RegisterScreen(),
-        CreateRoomScreen.routeName:(context) => const CreateRoomScreen()
+        CreateRoomScreen.routeName:(context) => const CreateRoomScreen(),
+        ChatScreen.routeName:(context) => ChatScreen()
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
     );

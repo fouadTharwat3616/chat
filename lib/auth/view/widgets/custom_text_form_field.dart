@@ -25,7 +25,7 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  bool isObsecure = false;
+  bool isObsecure = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -51,7 +51,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ): null
       ),
       maxLines: widget.maxLines,
-      obscureText: isObsecure,
+      obscureText:widget.isPassword ? isObsecure:false,
       validator: widget.validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
     );

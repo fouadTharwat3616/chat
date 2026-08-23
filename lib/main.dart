@@ -7,6 +7,7 @@ import 'package:chat/auth/view/screens/register_screen.dart';
 import 'package:chat/auth/view_model/auth_view_model.dart';
 import 'package:chat/firebase_options.dart';
 import 'package:chat/home_screen.dart';
+import 'package:chat/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,13 +34,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
       routes: {
+       SplashScreen.routeName:(context) => const SplashScreen(),
        HomeScreen.routeName:(context) => HomeScreen(),
         LoginScreen.routeName:(context) => LoginScreen(),
         RegisterScreen.routeName:(context) => RegisterScreen(),
         CreateRoomScreen.routeName:(context) => const CreateRoomScreen(),
         ChatScreen.routeName:(context) => ChatScreen()
       },
-      initialRoute: LoginScreen.routeName,
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
     );

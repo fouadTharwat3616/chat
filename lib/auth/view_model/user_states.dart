@@ -16,3 +16,13 @@ class RegisterError extends AuthStates{
   final String message;
   RegisterError(this.message);
 }
+
+class LogoutLoading extends AuthStates{}
+class LogoutSuccess extends AuthStates{}
+class LogoutError extends AuthStates{
+  final String message;
+  LogoutError(this.message);
+}
+
+class IsLoggedIn extends AuthStates{}
+class NotLoggedIn extends AuthStates{}

@@ -1,8 +1,12 @@
+import 'package:chat/auth/view/screens/login_screen.dart';
+import 'package:chat/auth/view_model/auth_view_model.dart';
+import 'package:chat/auth/view_model/user_states.dart';
 import 'package:chat/rooms/view/screens/create_room_screen.dart';
 import 'package:chat/rooms/view/widgets/room_item.dart';
 import 'package:chat/rooms/view_model/room_view_model.dart';
 import 'package:chat/rooms/view_model/rooms_states.dart';
 import 'package:chat/shared/app_theme.dart';
+import 'package:chat/shared/utils.dart';
 import 'package:chat/shared/widgets/error_indicator.dart';
 import 'package:chat/shared/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +42,33 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text(
             'Chat App',
           ),
+          actions: [
+            BlocConsumer<AuthViewModel,AuthStates>(
+              listener: (context, state) {
+                if(state is LogoutSuccess)
+                  {
+                    Navigator.of(context).pushReplacementNamed(
+                        LoginScreen.routeName);
+                  }
+                else if(state is LogoutError)
+                  {
+                    UiUtils.showMessage(state.message);
+                  }
+
+              },
+              builder:(context, state) {
+                if(state is LogoutLoading)
+                  {
+                    return const LoadingIndicator();
+                  }
+                else {
+                  return IconButton(onPressed: () {
+                    BlocProvider.of<AuthViewModel>(context).logOut();
+                  }, icon: const Icon(Icons.logout_outlined, size: 28,));
+                }
+              },
+            )
+          ],
         ),
         body: Container(
             width: double.infinity,

@@ -52,13 +52,24 @@ class DataBaseUtils {
   }) async {
     final credentials = await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password);
-    final userCollection = getUsersCollection();
-    final docSnapshot = await userCollection.doc(credentials.user!.uid).get();
-    return docSnapshot.data()!;
+    final user = _getUser(credentials.user!.uid);
+    return user;
   }
 
   static Future<void> LogOut() {
     return FirebaseAuth.instance.signOut();
+  }
+  static Future<UserModel> _getUser(String id)async
+  {
+    final userCollection = getUsersCollection();
+    final docSnapshot = await userCollection.doc(id).get();
+    return docSnapshot.data()!;
+  }
+
+  static Future<UserModel?> getCurrentUser()async{
+    final firebaseUser = FirebaseAuth.instance.currentUser;
+    final user = _getUser(firebaseUser!.uid);
+    return user;
   }
 
   //Create room

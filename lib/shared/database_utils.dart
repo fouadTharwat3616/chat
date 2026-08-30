@@ -68,7 +68,8 @@ class DataBaseUtils {
 
   static Future<UserModel?> getCurrentUser()async{
     final firebaseUser = FirebaseAuth.instance.currentUser;
-    final user = _getUser(firebaseUser!.uid);
+    if(firebaseUser == null) return null;
+    final user = _getUser(firebaseUser.uid);
     return user;
   }
 

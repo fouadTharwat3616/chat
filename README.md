@@ -1,3 +1,11 @@
+
+
+https://github.com/user-attachments/assets/165f0eea-a9cd-4505-bcb2-7c9e32992abf
+
+
+
+https://github.com/user-attachments/assets/3ab393fe-783a-46a9-868d-f15a2e0b30ec
+
 # 💬 Chat App (Real-Time Communication Platform)
 
 A professional, real-time messaging application built with **Flutter**, featuring dynamic chat rooms and robust state management utilizing **BLoC/Cubit** and **Firebase** services.
@@ -20,8 +28,7 @@ A professional, real-time messaging application built with **Flutter**, featurin
 
 ## 🎥 App Demo
 <p align="center">
-  <!-- استبدل الرابط أدناه برابط الفيديو بعد رفعه على GitHub -->
-  <video src="https://github.com" width="320" autoplay loop muted playsinline></video> 
+  <video src="https://github.com/user-attachments/assets/cd67f4bf-6d67-4037-96c0-67784f936ee8" width="320" autoplay loop muted playsinline></video> 
 </p>
 
 ---
